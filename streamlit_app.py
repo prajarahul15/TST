@@ -706,8 +706,8 @@ def main():
             st.rerun()
     
     with st.expander("�� Enter API Keys"):
-    #GEMINI_API_KEY = st.text_input("Gemini API Key", type="password")
-    OPENAI_API_KEY = st.text_input("OpenAI API Key", type="password")
+        #GEMINI_API_KEY = st.text_input("Gemini API Key", type="password")
+        OPENAI_API_KEY = st.text_input("OpenAI API Key", type="password")
     
     # Check if system is initialized
     if st.session_state.orchestrator is None:
@@ -948,5 +948,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
