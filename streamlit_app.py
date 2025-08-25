@@ -77,7 +77,18 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
+def get_openai_api_key_from_ui():
+    """Get OpenAI API key from user input in the UI"""
+    st.sidebar.markdown("### 🔑 OpenAI API Configuration")
+    
+    openai_key = st.sidebar.text_input(
+        "OpenAI API Key:",
+        type="password",
+        placeholder="sk-...",
+        help="Enter your OpenAI API key to use GPT models"
+    )
+    
+    return openai_key
 # Initialize session state
 if 'orchestrator' not in st.session_state:
     st.session_state.orchestrator = None
@@ -661,29 +672,15 @@ class FinancialInsightOrchestrator:
             print(f"{'='*60}\n")
             return f"Error processing your question: {str(e)}"
 
-# Initialize the system
-def initialize_system():
-    """Initialize the LLM and orchestrator"""
+# Initialize the systemdef initialize_system(openai_api_key):
+    """Initialize the LLM and orchestrator with user-provided OpenAI API key"""
     try:
-        #GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-        #OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
-        os.environ["OPENAI_API_KEY"] = st.session_state.OPENAI_API_KEY
-        #if not GEMINI_API_KEY:
-            #st.error("❌ GEMINI_API_KEY not found in .env file")
-            #st.info("Please create a .env file with your Gemini API key")
-            #return False
+        if not openai_api_key:
+            st.error("❌ Please provide your OpenAI API key in the sidebar")
+            return False
         
         with st.spinner("🤖 Initializing AI Agent System..."):
-            # llm = ChatGoogleGenerativeAI(
-            #     model="gemini-2.0-flash-exp",
-            #     google_api_key=GEMINI_API_KEY,
-            #     temperature=0.1,
-            #     convert_system_message_to_human=True
-            # )
-            if "OPENAI_API_KEY" in st.session_state and st.session_state.OPENAI_API_KEY:
-                llm=ChatOpenAI(model="gpt-4o-mini", api_key=st.session_state.OPENAI_API_KEY,temperature=0.1)
-            else:
-                st.error("❌ Please provide a valid OpenAI API Key in the API Key section.")
+            llm = ChatOpenAI(model="gpt-4o-mini", api_key=openai_api_key, temperature=0.1)
             
             orchestrator = FinancialInsightOrchestrator(llm)
             st.session_state.orchestrator = orchestrator
@@ -703,18 +700,15 @@ def main():
     # Sidebar
     st.sidebar.title("🔧 System Controls")
 
+    # Get OpenAI API key from UI
+    openai_api_key = get_openai_api_key_from_ui()
     
     # Initialize system
     if st.sidebar.button("🚀 Initialize AI System", type="primary"):
-        if initialize_system():
+        if initialize_system(openai_api_key):
             st.rerun()
     
-    with st.expander("�� Enter API Keys"):
-        #GEMINI_API_KEY = st.text_input("Gemini API Key", type="password")
-        api_key_input  = st.text_input("OpenAI API Key", type="password")
-        if api_key_input:
-            st.session_state.OPENAI_API_KEY = api_key_input
-            st.success("✅ OpenAI API Key stored successfully!")
+    
     
     # Check if system is initialized
     if st.session_state.orchestrator is None:
@@ -955,6 +949,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
