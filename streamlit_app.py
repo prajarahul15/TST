@@ -672,7 +672,8 @@ class FinancialInsightOrchestrator:
             print(f"{'='*60}\n")
             return f"Error processing your question: {str(e)}"
 
-# Initialize the systemdef initialize_system(openai_api_key):
+# Initialize the system
+    def initialize_system(openai_api_key):
     """Initialize the LLM and orchestrator with user-provided OpenAI API key"""
     try:
         if not openai_api_key:
@@ -949,6 +950,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
