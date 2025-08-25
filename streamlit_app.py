@@ -665,13 +665,15 @@ class FinancialInsightOrchestrator:
 def initialize_system():
     """Initialize the LLM and orchestrator"""
     try:
-        GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-        OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
-        if not GEMINI_API_KEY:
-            st.error("❌ GEMINI_API_KEY not found in .env file")
-            st.info("Please create a .env file with your Gemini API key")
-            return False
-        
+        #GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+        #OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
+        #if not GEMINI_API_KEY:
+            #st.error("❌ GEMINI_API_KEY not found in .env file")
+            #st.info("Please create a .env file with your Gemini API key")
+            #return False
+        with st.expander("�� Enter API Keys"):
+        #GEMINI_API_KEY = st.text_input("Gemini API Key", type="password")
+        OPENAI_API_KEY = st.text_input("OpenAI API Key", type="password")
         with st.spinner("🤖 Initializing AI Agent System..."):
             # llm = ChatGoogleGenerativeAI(
             #     model="gemini-2.0-flash-exp",
@@ -943,3 +945,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
