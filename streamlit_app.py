@@ -667,6 +667,7 @@ def initialize_system():
     try:
         #GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
         #OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
+        os.environ["OPENAI_API_KEY"] = st.session_state.OPENAI_API_KEY
         #if not GEMINI_API_KEY:
             #st.error("❌ GEMINI_API_KEY not found in .env file")
             #st.info("Please create a .env file with your Gemini API key")
@@ -954,6 +955,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
