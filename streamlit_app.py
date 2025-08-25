@@ -679,7 +679,10 @@ def initialize_system():
             #     temperature=0.1,
             #     convert_system_message_to_human=True
             # )
-            llm=ChatOpenAI(model="gpt-4o-mini", api_key="sk-proj-U0KHEcg5Ka97lte3ebu6Ehy--sD9tM5ZmjUgEXz8OPENAI_API_KEY0G6GDAurX9a5Ps5-a028JXCufHQjLk4sjTT3BlbkFJZeF2RiIs_tWc8xFLd_wo6-4izzNlk9GDplTb_JUUlJ37GuPJHxI_UZQ7fospmY-78kKmRJvpAA",temperature=0.1)
+            if "OPENAI_API_KEY" in st.session_state and st.session_state.OPENAI_API_KEY:
+                llm=ChatOpenAI(model="gpt-4o-mini", api_key=st.session_state.OPENAI_API_KEY,temperature=0.1)
+            else:
+                st.error("❌ Please provide a valid OpenAI API Key in the API Key section.")
             
             orchestrator = FinancialInsightOrchestrator(llm)
             st.session_state.orchestrator = orchestrator
@@ -707,9 +710,9 @@ def main():
     
     with st.expander("�� Enter API Keys"):
         #GEMINI_API_KEY = st.text_input("Gemini API Key", type="password")
-        OPENAI_API_KEY = st.text_input("OpenAI API Key", type="password")
-        if OPENAI_API_KEY:
-            st.session_state.OPENAI_API_KEY = OPENAI_API_KEY
+        api_key_input  = st.text_input("OpenAI API Key", type="password")
+        if api_key_input:
+            st.session_state.OPENAI_API_KEY = api_key_input
             st.success("✅ OpenAI API Key stored successfully!")
     
     # Check if system is initialized
@@ -951,6 +954,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
