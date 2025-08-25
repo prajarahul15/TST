@@ -679,7 +679,7 @@ def initialize_system():
             #     temperature=0.1,
             #     convert_system_message_to_human=True
             # )
-            llm=ChatOpenAI(model="gpt-4o-mini", api_key=st.session_state.OPENAI_API_KEY,temperature=0.1)
+            llm=ChatOpenAI(model="gpt-4o-mini", api_key="sk-proj-U0KHEcg5Ka97lte3ebu6Ehy--sD9tM5ZmjUgEXz8OPENAI_API_KEY0G6GDAurX9a5Ps5-a028JXCufHQjLk4sjTT3BlbkFJZeF2RiIs_tWc8xFLd_wo6-4izzNlk9GDplTb_JUUlJ37GuPJHxI_UZQ7fospmY-78kKmRJvpAA",temperature=0.1)
             
             orchestrator = FinancialInsightOrchestrator(llm)
             st.session_state.orchestrator = orchestrator
@@ -951,6 +951,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
