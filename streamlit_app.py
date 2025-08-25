@@ -679,7 +679,7 @@ def initialize_system():
             #     temperature=0.1,
             #     convert_system_message_to_human=True
             # )
-            llm=ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY,temperature=0.1)
+            llm=ChatOpenAI(model="gpt-4o-mini", api_key=st.session_state.OPENAI_API_KEY,temperature=0.1)
             
             orchestrator = FinancialInsightOrchestrator(llm)
             st.session_state.orchestrator = orchestrator
@@ -951,6 +951,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
