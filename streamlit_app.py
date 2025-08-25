@@ -671,9 +671,7 @@ def initialize_system():
             #st.error("❌ GEMINI_API_KEY not found in .env file")
             #st.info("Please create a .env file with your Gemini API key")
             #return False
-        with st.expander("�� Enter API Keys"):
-        #GEMINI_API_KEY = st.text_input("Gemini API Key", type="password")
-        OPENAI_API_KEY = st.text_input("OpenAI API Key", type="password")
+        
         with st.spinner("🤖 Initializing AI Agent System..."):
             # llm = ChatGoogleGenerativeAI(
             #     model="gemini-2.0-flash-exp",
@@ -700,11 +698,16 @@ def main():
     
     # Sidebar
     st.sidebar.title("🔧 System Controls")
+
     
     # Initialize system
     if st.sidebar.button("🚀 Initialize AI System", type="primary"):
         if initialize_system():
             st.rerun()
+    
+    with st.expander("�� Enter API Keys"):
+    #GEMINI_API_KEY = st.text_input("Gemini API Key", type="password")
+    OPENAI_API_KEY = st.text_input("OpenAI API Key", type="password")
     
     # Check if system is initialized
     if st.session_state.orchestrator is None:
@@ -945,4 +948,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
