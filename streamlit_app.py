@@ -727,9 +727,9 @@ def main():
             st.rerun()
     
     # Initialize system
-    if st.sidebar.button("🚀 Initialize AI System", type="primary"):
-        if initialize_system():
-            st.rerun()
+    #if st.sidebar.button("🚀 Initialize AI System", type="Secondry"):
+        #if initialize_system():
+            #st.rerun()
     
     # Check if system is initialized
     if st.session_state.orchestrator is None:
@@ -1489,5 +1489,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
