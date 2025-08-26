@@ -77,7 +77,18 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
+def get_openai_api_key_from_ui():
+    """Get OpenAI API key from user input in the UI"""
+    st.sidebar.markdown("### 🔑 OpenAI API Configuration")
+    
+    openai_key = st.sidebar.text_input(
+        "OpenAI API Key:",
+        type="password",
+        placeholder="sk-...",
+        help="Enter your OpenAI API key to use GPT models"
+    )
+    
+    return openai_key
 # Initialize session state
 if 'orchestrator' not in st.session_state:
     st.session_state.orchestrator = None
@@ -662,14 +673,14 @@ class FinancialInsightOrchestrator:
             return f"Error processing your question: {str(e)}"
 
 # Initialize the system
-def initialize_system():
+def initialize_system(openai_api_key):
     """Initialize the LLM and orchestrator"""
     try:
-        GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-        OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
-        if not GEMINI_API_KEY:
-            st.error("❌ GEMINI_API_KEY not found in .env file")
-            st.info("Please create a .env file with your Gemini API key")
+        #GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+        #OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
+        if not openai_api_key:
+            st.error("❌ Please provide your OpenAI API key in the sidebar")
+            #st.info("Please create a .env file with your Gemini API key")
             return False
         
         with st.spinner("🤖 Initializing AI Agent System..."):
@@ -679,7 +690,7 @@ def initialize_system():
             #     temperature=0.1,
             #     convert_system_message_to_human=True
             # )
-            llm=ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY,temperature=0.1)
+            llm=ChatOpenAI(model="gpt-4o-mini", api_key=openai_api_key,temperature=0.1)
             
             orchestrator = FinancialInsightOrchestrator(llm)
             st.session_state.orchestrator = orchestrator
@@ -698,6 +709,11 @@ def main():
     
     # Sidebar
     st.sidebar.title("🔧 System Controls")
+
+    openai_api_key = get_openai_api_key_from_ui()
+    if st.sidebar.button("🚀 Initialize AI System", type="primary"):
+        if initialize_system(openai_api_key):
+            st.rerun()
     
     # System info
     st.sidebar.markdown("**📊 Analysis Pipeline:**")
@@ -1472,3 +1488,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
