@@ -711,9 +711,7 @@ def main():
     st.sidebar.title("🔧 System Controls")
 
     openai_api_key = get_openai_api_key_from_ui()
-    if st.sidebar.button("🚀 Initialize AI System", type="primary"):
-        if initialize_system(openai_api_key):
-            st.rerun()
+    
     
     # System info
     st.sidebar.markdown("**📊 Analysis Pipeline:**")
@@ -724,6 +722,9 @@ def main():
     st.sidebar.markdown("5. 💬 Q&A")
     
     st.sidebar.markdown("---")
+    if st.sidebar.button("🚀 Initialize AI System", type="primary"):
+        if initialize_system(openai_api_key):
+            st.rerun()
     
     # Initialize system
     if st.sidebar.button("🚀 Initialize AI System", type="primary"):
@@ -1488,4 +1489,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
