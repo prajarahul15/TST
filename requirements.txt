@@ -19,6 +19,9 @@ pydantic
 langchain-community
 langchain-core
 langchain_openai
+scikit-learn
+
+
 
 
 
