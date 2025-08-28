@@ -80,6 +80,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+def get_openai_api_key_from_ui():
+    """Get OpenAI API key from user input in the UI"""
+    st.sidebar.markdown("### 🔑 OpenAI API Configuration")
+    
+    openai_key = st.sidebar.text_input(
+        "OpenAI API Key:",
+        type="password",
+        placeholder="sk-...",
+        help="Enter your OpenAI API key to use GPT models"
+    )
+    
+    return openai_key
+
 # Initialize session state
 if 'orchestrator' not in st.session_state:
     st.session_state.orchestrator = None
@@ -2760,5 +2773,6 @@ def display_comprehensive_dashboard():
 # Just add the import at the top and replace the main() function
 if __name__ == "__main__":
     main()
+
 
 
