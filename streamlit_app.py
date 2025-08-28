@@ -1390,7 +1390,7 @@ def initialize_system(openai_api_key):
             #     temperature=0.1,
             #     convert_system_message_to_human=True
             # )
-            llm=ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY,temperature=0.1)
+            llm=ChatOpenAI(model="gpt-4o-mini", api_key=openai_api_key,temperature=0.1)
             
             orchestrator = FinancialInsightOrchestrator(llm)
             st.session_state.orchestrator = orchestrator
@@ -1410,7 +1410,7 @@ def main():
     
     # Sidebar
     st.sidebar.title("�� System Controls")
-    
+    openai_api_key = get_openai_api_key_from_ui()
     # System info
     st.sidebar.markdown("**📊 Analysis Pipeline:**")
     st.sidebar.markdown("1. 📊 Data Overview")
@@ -1425,7 +1425,7 @@ def main():
     
     # Initialize system
     if st.sidebar.button("🚀 Initialize AI System", type="primary"):
-        if initialize_system():
+        if initialize_system(openai_api_key):
             st.rerun()
     
     # Check if system is initialized
@@ -2760,4 +2760,5 @@ def display_comprehensive_dashboard():
 # Just add the import at the top and replace the main() function
 if __name__ == "__main__":
     main()
+
 
