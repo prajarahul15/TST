@@ -1372,14 +1372,15 @@ def create_recovery_chart(stress_results):
         return None
 
 # Initialize the system
-def initialize_system():
+def initialize_system(openai_api_key):
     """Initialize the LLM and orchestrator"""
     try:
-        GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-        OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
-        if not GEMINI_API_KEY:
-            st.error("❌ GEMINI_API_KEY not found in .env file")
-            st.info("Please create a .env file with your Gemini API key")
+        #GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+        #OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
+        if not openai_api_key:
+            #st.error("❌ GEMINI_API_KEY not found in .env file")
+            #st.info("Please create a .env file with your Gemini API key")
+            st.error("❌ Please provide your OpenAI API key in the sidebar")
             return False
         
         with st.spinner("🤖 Initializing AI Agent System..."):
@@ -2759,3 +2760,4 @@ def display_comprehensive_dashboard():
 # Just add the import at the top and replace the main() function
 if __name__ == "__main__":
     main()
+
