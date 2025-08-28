@@ -1,0 +1,128 @@
+🎯 Market Sentiment Analysis - Sample Questions
+📈 General Market Sentiment
+1. "What's the current market sentiment around cloud computing services?"
+Analyzes sentiment for cloud industry trends
+Useful for understanding AWS/cloud spending context
+1. "Analyze market sentiment regarding inflation and its impact on technology spending"
+Combines economic indicators with tech sector sentiment
+Helps contextualize your cloud cost trends
+1. "What's the market sentiment around interest rate changes?"
+Critical for understanding financing and investment decisions
+Affects enterprise spending patterns
+1. "How is the market sentiment regarding recession fears affecting business spending?"
+Helps understand broader economic concerns
+Relevant for budget planning and forecasting
+🏭 Industry-Specific Sentiment
+1. "What's the sentiment around artificial intelligence and machine learning investments?"
+Relevant if your AWS spending includes AI/ML services
+Helps justify or question AI-related cloud costs
+1. "Analyze market sentiment for healthcare technology spending"
+Use if you have healthcare-related lineups
+Combines industry outlook with your data
+1. "What's the current sentiment regarding cybersecurity investments?"
+Important for security-related cloud spending
+Helps justify security tool costs
+1. "How is market sentiment around digital transformation affecting enterprise cloud adoption?"
+Broader context for cloud migration strategies
+Relevant for multi-year cloud spending trends
+💰 Financial Markets & Economic Sentiment
+1. "What's the sentiment around tech stock performance and how does it relate to our cloud spending?"
+Links market performance to technology investments
+Helps understand industry confidence levels
+1. "Analyze sentiment regarding supply chain disruptions and their impact on technology costs"
+Relevant for understanding cost pressures
+Helps explain unexpected spending variations
+1. "What's the market sentiment about energy costs and data center operations?"
+Directly relevant to cloud infrastructure costs
+Helps understand underlying cost drivers
+1. "How is sentiment around remote work affecting cloud service demand?"
+Links workplace trends to cloud usage
+Relevant for understanding demand patterns
+🔍 Specific AWS/Cloud Related Sentiment
+1. "What's the market sentiment regarding Amazon Web Services and cloud competition?"
+Direct analysis of AWS market position
+Helps understand vendor relationship context
+1. "Analyze sentiment around cloud cost optimization and FinOps practices"
+Directly relevant to your financial analysis goals
+Shows industry best practices context
+1. "What's the sentiment regarding multi-cloud strategies vs single-cloud approaches?"
+Strategic context for your cloud decisions
+Industry trend analysis
+1. "How is market sentiment around cloud security and compliance affecting spending?"
+Important for security-related cost justification
+Regulatory impact analysis
+🎯 Combined Analysis Questions
+1. "Compare our AWS spending trends with current market sentiment around cloud investments"
+Combines your internal data with external sentiment
+Comprehensive analysis approach
+1. "How do current economic conditions and market sentiment explain our cloud spending variations?"
+Links internal variance with external factors
+Advanced analytical context
+1. "What market sentiment factors should we consider in our next quarter's cloud budget forecast?"
+Forward-looking sentiment analysis
+Budget planning context
+1. "Analyze how market sentiment around our industry sector aligns with our cloud spending patterns"
+Industry-specific sentiment correlation
+Strategic alignment analysis
+🛠️ How to Use These Questions
+Step 1: Go to Your Q&A Tab
+In your Streamlit app, navigate to the "Q&A" tab (Tab 6).
+Step 2: Copy & Paste Questions
+Simply copy any of the sample questions above and paste them into the question input field.
+Step 3: Click "Ask AI"
+The agent will automatically:
+Use the get_market_sentiment() tool
+Analyze the requested sentiment topic
+Provide structured insights
+Include monitoring recommendations
+Step 4: Follow Up
+Based on the response, you can ask follow-up questions like:
+"How does this sentiment affect our specific lineup ABC123?"
+"What should we monitor going forward?"
+"How does this compare to our variance analysis?"
+📊 What You'll Get Back
+When you ask these questions, the agent will provide:
+text
+
+Market Sentiment Analysis: [Your Topic]
+📈 Sentiment Overview:
+• Topic: [Analyzed Topic]
+• Analysis Date: [Current Date]
+• Sentiment Status: Monitoring active
+🎯 Sentiment Indicators:
+• News sentiment: [Positive/Neutral/Negative]
+• Social media buzz: [Activity level]
+• Expert opinions: [Outlook summary]
+• Market reactions: [Market response]
+📊 Data Integration Points:
+• Financial news aggregation
+• Social media sentiment tracking
+• Expert opinion monitoring
+• Market price correlation
+🔍 Recommended Monitoring:
+• Real-time news feeds
+• Financial analyst reports
+• Market volatility indicators
+💡 Implementation Suggestions:
+• [Specific API recommendations]
+• [Data source suggestions]
+• [Monitoring tools]
+🚀 Try It Now!
+Start with this simple question:
+text
+
+"What's the current market sentiment around cloud computing services?"
+Then try a more specific one:
+text
+
+"How is market sentiment around interest rate changes affecting technology spending decisions?"
+🎯 Pro Tips for Better Results
+1. Be Specific: Include context about your industry or use case
+1. Combine Topics: Ask about multiple related factors
+1. Time-based: Ask about current vs historical sentiment
+1. Action-oriented: Ask how sentiment should influence decisions
+Example of a great combined question:
+text
+
+"Analyze current market sentiment around cloud cost optimization and economic uncertainty, and explain how this relates to our AWS spending variance patterns"
+This will trigger multiple tools and provide comprehensive analysis combining sentiment, economic data, and your internal financial data!
