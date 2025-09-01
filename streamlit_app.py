@@ -1830,7 +1830,7 @@ def initialize_system(openai_api_key):
         with st.spinner("🤖 Initializing AI Agent System..."):
             llm = ChatOpenAI(
                 model="gpt-4o-mini", 
-                api_key=OPENAI_API_KEY,
+                api_key=openai_api_key,
                 temperature=0.1
             )
             orchestrator = FinancialInsightOrchestrator(llm)
@@ -3206,6 +3206,7 @@ def display_comprehensive_dashboard():
 # Just add the import at the top and replace the main() function
 if __name__ == "__main__":
     main()
+
 
 
 
