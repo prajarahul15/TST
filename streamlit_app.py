@@ -1867,7 +1867,7 @@ def main():
     
     # Initialize system
     if st.sidebar.button("🚀 Initialize AI System", type="primary"):
-        if initialize_system():
+        if initialize_system(openai_api_key):
             st.rerun()
     
     # Check if system is initialized
@@ -3206,4 +3206,5 @@ def display_comprehensive_dashboard():
 # Just add the import at the top and replace the main() function
 if __name__ == "__main__":
     main()
+
 
