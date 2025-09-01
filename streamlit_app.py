@@ -1822,7 +1822,7 @@ def initialize_system(openai_api_key):
         #GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
         #OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
         #print("OPENAI_API_KEY*********************\n",OPENAI_API_KEY)
-        if not OPENAI_API_KEY:
+        if not openai_api_key:
             st.error("❌ OPENAI_API_KEY not found in .env file")
             st.info("Please create a .env file with your OpenAI API key")
             return False
@@ -3206,6 +3206,7 @@ def display_comprehensive_dashboard():
 # Just add the import at the top and replace the main() function
 if __name__ == "__main__":
     main()
+
 
 
 
