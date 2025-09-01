@@ -80,6 +80,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+def get_openai_api_key_from_ui():
+    """Get OpenAI API key from user input in the UI"""
+    st.sidebar.markdown("### 🔑 OpenAI API Configuration")
+    
+    openai_key = st.sidebar.text_input(
+        "OpenAI API Key:",
+        type="password",
+        placeholder="sk-...",
+        help="Enter your OpenAI API key to use GPT models"
+    )
+    
+    return openai_key
+
 # Initialize session state
 if 'orchestrator' not in st.session_state:
     st.session_state.orchestrator = None
@@ -1803,7 +1816,7 @@ def create_recovery_chart(stress_results):
         return None
 
 # Initialize the system
-def initialize_system():
+def initialize_system(openai_api_key):
     """Initialize the LLM and orchestrator"""
     try:
         #GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
@@ -1838,6 +1851,7 @@ def main():
     
     # Sidebar
     st.sidebar.title("�� System Controls")
+    openai_api_key = get_openai_api_key_from_ui()
     
     # System info
     st.sidebar.markdown("**📊 Analysis Pipeline:**")
@@ -3192,3 +3206,4 @@ def display_comprehensive_dashboard():
 # Just add the import at the top and replace the main() function
 if __name__ == "__main__":
     main()
+
